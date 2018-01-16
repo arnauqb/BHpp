@@ -1,9 +1,10 @@
 #include <iostream>
-#include "EulerSolver.h"
+#include "BlackHole.h"
 using namespace std;
 
 int main (void)
 {
-	EulerSolver ES(1.,3.,1.);
+	BlackHole BH(1.);
+	BH.geodesic(100, 10, 0, 1, 10, 1, 2, 1);
 	return 0;
 }
