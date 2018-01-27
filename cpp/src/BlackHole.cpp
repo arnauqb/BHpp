@@ -36,7 +36,7 @@ double BlackHole::dtdtau (double r)
 	return E / (1. - 2. * G * M / ( pow(c,2) * r)) ;
 }
 
-void BlackHole::geodesic(int nsteps, double r0, double vr0, double phi0, double tau0, double tau1, double energy, double ang_momentum, int particle_type, string file)
+bool BlackHole::geodesic(int nsteps, double r0, double vr0, double phi0, double tau0, double tau1, double energy, double ang_momentum, int particle_type, string file)
 {
 	L = ang_momentum;
 	E = energy;
@@ -46,29 +46,30 @@ void BlackHole::geodesic(int nsteps, double r0, double vr0, double phi0, double 
 	double rg = G*M/pow(c,2.);
 	r0 = 10*rg;
 	double deltatau = (tau1-tau0) / (float) nsteps;
-	double Results[nsteps][5];
+	double Results[5];
 	cout << "Results will be save at Geodesic.out" << endl;
-	Results[0][0] = tau0;
-	Results[0][1] = r0;
-	Results[0][2] = vr0;
-	Results[0][3] = phi0;
-	Results[0][4] = tau0;
-	out << Results[0][0] << "\t" << Results[0][1] << "\t" << Results[0][2] << "\t" << Results[0][3] << "\t" << Results[0][4] << endl;
+	Results[0] = tau0;
+	Results[1] = r0;
+	Results[2] = vr0;
+	Results[3] = phi0;
+	Results[4] = tau0;
+	out << Results[0] << "\t" << Results[1] << "\t" << Results[2] << "\t" << Results[3] << "\t" << Results[4] << endl;
 	for (int i=1; i < nsteps; i++)
 	{
-		Results[i][0] = tau0 + i*deltatau;
-		Results[i][2] = Results[i-1][2] + drdtau(Results[i-1][1]) * deltatau;
-		Results[i][1] = Results[i-1][1] + Results[i][2] * deltatau;
-		if(Results[i][1] < 2.*rg)
+		Results[0] += i*deltatau;
+		Results[2] += drdtau(Results[1]) * deltatau;
+		Results[3] += dphidtau(Results[1]) * deltatau;
+		Results[4] += dtdtau(Results[1]) * deltatau;
+		Results[1] += Results[2] * deltatau;
+		if(Results[1] < 2.*rg)
 		{
 			cout << "Fallen in the black hole! " << endl;
-			break;
+			return true;
 		}
-		Results[i][3] = Results[i-1][3] + dphidtau(Results[i-1][1]) * deltatau;
-		Results[i][4] = Results[i-1][4] + dtdtau(Results[i-1][1]) * deltatau;
-		out << Results[i][0] << "\t" << Results[i][1] << "\t" << Results[i][2] << "\t" << Results[i][3] << "\t" << Results[i][4] << endl;
+		out << Results[0] << "\t" << Results[1] << "\t" << Results[2] << "\t" << Results[3] << "\t" << Results[4] << endl;
 	}
 	out.close();
+	return false;
 }
 
 void BlackHole::PlotV(double angmomentum, double particle_type)

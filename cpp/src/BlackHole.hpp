@@ -21,7 +21,7 @@ class BlackHole{
 		double E;
 		double L;
 		BlackHole(double M);
-		void geodesic(int nsteps, double r0, double vr0, double phi0,  double tau0, double tau1, double energy, double ang_momentum, int particle_type, string file);
+		bool geodesic(int nsteps, double r0, double vr0, double phi0,  double tau0, double tau1, double energy, double ang_momentum, int particle_type, string file);
 		void info();
 		double V(double r);
 		void PlotV(double angmomentum, double particle_type);
