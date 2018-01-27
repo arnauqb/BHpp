@@ -44,7 +44,7 @@ bool BlackHole::geodesic(int nsteps, double r0, double vr0, double phi0, double 
 	ofstream out;
 	out.open(file);
 	double rg = G*M/pow(c,2.);
-	r0 = 10*rg;
+	r0 = r0*2*rg;
 	double deltatau = (tau1-tau0) / (float) nsteps;
 	double Results[5];
 	cout << "Results will be save at Geodesic.out" << endl;
