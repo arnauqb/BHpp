@@ -1,6 +1,15 @@
 # BH++
 BH++ is an Euler-Cromer integrator written in C++ to numerically calculate the geodesic equations for a scalar black hole. 
 
+Table of contents
+=================
+
+  * [Requirements](#Requirements)
+  * [Build](#Build)
+  * [Usage](#usage)
+  * [Tests](#tests)
+  
+  
 ## Requirements
 ```shell
 git (optional)
@@ -90,5 +99,10 @@ Where:
      Displays usage information and exits.
 ```
 
-## Examples
+## Tests
+Photon geodesics
 ![Photons](https://raw.githubusercontent.com/arnauq/BHpp/master/photons.png)
+Particle geodesics
+![Particles](https://raw.githubusercontent.com/arnauq/BHpp/master/massive.png)
+Solar System
+![SolarSystem](https://raw.githubusercontent.com/arnauq/BHpp/master/SolarSystem.png)
