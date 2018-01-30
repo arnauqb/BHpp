@@ -9,7 +9,7 @@ class BlackHole{
 		double Ms = 1.9884754153381438e30;
 		double c = 299792458.;
 		static const double tolerance;
-		double epsilon = 1;
+		int epsilon = 1;
 		int nsteps = 100;
 		double drdtau(double r);
 		double dphidtau(double r);
@@ -21,10 +21,12 @@ class BlackHole{
 		double E;
 		double L;
 		BlackHole(double M);
-		bool geodesic(int nsteps, double r0, double vr0, double phi0,  double tau0, double tau1, double energy, double ang_momentum, int particle_type, string file);
+		bool geodesic(int nsteps, double r0, double vr0, double phi0,  double tau0, double tau1, double energy, double ang_momentum, int particle_type, string file, bool conserved);
+		double EnergyConservation ( double r);
+		double LConservation ( double r);
 		void info();
 		double V(double r);
-		void PlotV(double angmomentum, double particle_type);
+		void PlotV(double angmomentum, int particle_type, double r0);
 
 };
 #endif	

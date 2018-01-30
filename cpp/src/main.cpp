@@ -19,6 +19,7 @@ int main (int argc, char** argv)
 	TCLAP::ValueArg<double> tau1_tclap("T","t1","Final time in seconds.\n Default: 1000", false, 1000., "double", cmd);
 	TCLAP::ValueArg<int> n_tclap("n","steps","Number of time steps\n Default: 10000", false, 10000, "int", cmd);
 	TCLAP::SwitchArg PlotV_tclap("V","Veff","If flagged, return a file containing the effective potential as a function of radius.\n Default: False", cmd, false);
+	TCLAP::SwitchArg Conserved_tclap("C","Cons","If flagged, return a file containing the Energy and Angular Momentum at each iteration.\n Default: False", cmd, false);
 	TCLAP::SwitchArg photon_tclap("g","photon","If flagged, the incoming particle is a photon.\n Default: False", cmd, false);
 	cmd.parse(argc,argv);
 
@@ -33,6 +34,7 @@ int main (int argc, char** argv)
 	bool fallen = false;
 	int n = n_tclap.getValue();
 	bool PlotV = PlotV_tclap.getValue();
+	bool Conserved = Conserved_tclap.getValue();
 	bool photon = photon_tclap.getValue();
 	int eps = 1;
 	if (photon)
@@ -41,10 +43,10 @@ int main (int argc, char** argv)
 	}
 	string file = file_tclap.getValue();
 	BlackHole BH(M);
-	fallen = BH.geodesic(n, r0, vr0, phi0, tau0, tau1, E, L, eps, file);
+	fallen = BH.geodesic(n, r0, vr0, phi0, tau0, tau1, E, L, eps, file, Conserved);
 	if(PlotV)
 	{
-		BH.PlotV(L, eps);
+		BH.PlotV(L, eps, r0);
 	}
 	if (fallen)
 	{
