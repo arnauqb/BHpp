@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.1.29)  30 JAN 2018 12:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.1.29)  30 JAN 2018 19:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -611,13 +611,13 @@ Package epstopdf Info: Source file: <Veff_photon.eps>
 (epstopdf)                    date: 2018-01-30 12:14:14
 (epstopdf)                    size: 12678 bytes
 (epstopdf)             Command: <repstopdf --outfile=Veff_photon-eps-converted-to.pdf Veff_photon.eps>
-(epstopdf)             \includegraphics on input line 165.
+(epstopdf)             \includegraphics on input line 214.
 Package epstopdf Info: Output file is already uptodate.
 <Veff_photon-eps-converted-to.pdf, id=1, pagebox=cropbox, 433.62pt x 289.08pt>
 File: Veff_photon-eps-converted-to.pdf Graphic file (type pdf)
 <use Veff_photon-eps-converted-to.pdf>
-Package pdftex.def Info: Veff_photon-eps-converted-to.pdf  used on input line 165. on input line 165.
-Package pdftex.def Info: Requested size: 252.0pt x 168.00174pt on input line 165.
+Package pdftex.def Info: Veff_photon-eps-converted-to.pdf  used on input line 214. on input line 214.
+Package pdftex.def Info: Requested size: 252.0pt x 168.00174pt on input line 214.
 Package epstopdf Info: Source file: <photon_geodesics.eps>
 (epstopdf)                    date: 2018-01-29 18:25:21
 (epstopdf)                    size: 183561 bytes
@@ -625,13 +625,19 @@ Package epstopdf Info: Source file: <photon_geodesics.eps>
 (epstopdf)                    date: 2018-01-29 18:27:14
 (epstopdf)                    size: 478058 bytes
 (epstopdf)             Command: <repstopdf --outfile=photon_geodesics-eps-converted-to.pdf photon_geodesics.eps>
-(epstopdf)             \includegraphics on input line 174.
+(epstopdf)             \includegraphics on input line 223.
 Package epstopdf Info: Output file is already uptodate.
 <photon_geodesics-eps-converted-to.pdf, id=2, pagebox=cropbox, 433.62pt x 433.62pt>
 File: photon_geodesics-eps-converted-to.pdf Graphic file (type pdf)
 <use photon_geodesics-eps-converted-to.pdf>
-Package pdftex.def Info: photon_geodesics-eps-converted-to.pdf  used on input line 174. on input line 174.
-Package pdftex.def Info: Requested size: 252.0pt x 252.00262pt on input line 174.
+Package pdftex.def Info: photon_geodesics-eps-converted-to.pdf  used on input line 223. on input line 223.
+Package pdftex.def Info: Requested size: 252.0pt x 252.00262pt on input line 223.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 Package epstopdf Info: Source file: <Veff_massive.eps>
 (epstopdf)                    date: 2018-01-30 12:17:24
 (epstopdf)                    size: 23998 bytes
@@ -639,13 +645,13 @@ Package epstopdf Info: Source file: <Veff_massive.eps>
 (epstopdf)                    date: 2018-01-30 12:17:40
 (epstopdf)                    size: 12129 bytes
 (epstopdf)             Command: <repstopdf --outfile=Veff_massive-eps-converted-to.pdf Veff_massive.eps>
-(epstopdf)             \includegraphics on input line 195.
+(epstopdf)             \includegraphics on input line 243.
 Package epstopdf Info: Output file is already uptodate.
-<Veff_massive-eps-converted-to.pdf, id=3, pagebox=cropbox, 433.62pt x 289.08pt>
+<Veff_massive-eps-converted-to.pdf, id=18, pagebox=cropbox, 433.62pt x 289.08pt>
 File: Veff_massive-eps-converted-to.pdf Graphic file (type pdf)
 <use Veff_massive-eps-converted-to.pdf>
-Package pdftex.def Info: Veff_massive-eps-converted-to.pdf  used on input line 195. on input line 195.
-Package pdftex.def Info: Requested size: 252.0pt x 168.00174pt on input line 195.
+Package pdftex.def Info: Veff_massive-eps-converted-to.pdf  used on input line 243. on input line 243.
+Package pdftex.def Info: Requested size: 252.0pt x 168.00174pt on input line 243.
 Package epstopdf Info: Source file: <massive_geodesics.eps>
 (epstopdf)                    date: 2018-01-30 11:44:43
 (epstopdf)                    size: 1060064 bytes
@@ -653,17 +659,13 @@ Package epstopdf Info: Source file: <massive_geodesics.eps>
 (epstopdf)                    date: 2018-01-30 11:49:49
 (epstopdf)                    size: 4323918 bytes
 (epstopdf)             Command: <repstopdf --outfile=massive_geodesics-eps-converted-to.pdf massive_geodesics.eps>
-(epstopdf)             \includegraphics on input line 203.
+(epstopdf)             \includegraphics on input line 251.
 Package epstopdf Info: Output file is already uptodate.
-<massive_geodesics-eps-converted-to.pdf, id=4, pagebox=cropbox, 433.62pt x 433.62pt>
+<massive_geodesics-eps-converted-to.pdf, id=19, pagebox=cropbox, 433.62pt x 433.62pt>
 File: massive_geodesics-eps-converted-to.pdf Graphic file (type pdf)
 <use massive_geodesics-eps-converted-to.pdf>
-Package pdftex.def Info: massive_geodesics-eps-converted-to.pdf  used on input line 203. on input line 203.
-Package pdftex.def Info: Requested size: 252.0pt x 252.00262pt on input line 203.
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
-
-
- <./Veff_photon-eps-converted-to.pdf> <./photon_geodesics-eps-converted-to.pdf>]
+Package pdftex.def Info: massive_geodesics-eps-converted-to.pdf  used on input line 251. on input line 251.
+Package pdftex.def Info: Requested size: 252.0pt x 252.00262pt on input line 251.
 Package epstopdf Info: Source file: <SolarSystem.eps>
 (epstopdf)                    date: 2018-01-30 09:49:53
 (epstopdf)                    size: 86722 bytes
@@ -671,30 +673,41 @@ Package epstopdf Info: Source file: <SolarSystem.eps>
 (epstopdf)                    date: 2018-01-30 09:50:04
 (epstopdf)                    size: 200930 bytes
 (epstopdf)             Command: <repstopdf --outfile=SolarSystem-eps-converted-to.pdf SolarSystem.eps>
-(epstopdf)             \includegraphics on input line 219.
+(epstopdf)             \includegraphics on input line 267.
 Package epstopdf Info: Output file is already uptodate.
-<SolarSystem-eps-converted-to.pdf, id=79, pagebox=cropbox, 433.62pt x 433.62pt>
+<SolarSystem-eps-converted-to.pdf, id=20, pagebox=cropbox, 433.62pt x 433.62pt>
 File: SolarSystem-eps-converted-to.pdf Graphic file (type pdf)
 <use SolarSystem-eps-converted-to.pdf>
-Package pdftex.def Info: SolarSystem-eps-converted-to.pdf  used on input line 219. on input line 219.
-Package pdftex.def Info: Requested size: 252.0pt x 252.00262pt on input line 219.
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no “ in font ptmr7t!
- [2 <./Veff_massive-eps-converted-to.pdf> <./massive_geodesics-eps-converted-to.pdf> <./SolarSystem-eps-converted-to.pdf>] (./report.aux) ) 
+Package pdftex.def Info: SolarSystem-eps-converted-to.pdf  used on input line 267. on input line 267.
+Package pdftex.def Info: Requested size: 252.0pt x 252.00262pt on input line 267.
+Package epstopdf Info: Source file: <ConQuant.eps>
+(epstopdf)                    date: 2018-01-30 16:17:07
+(epstopdf)                    size: 49870 bytes
+(epstopdf)             Output file: <ConQuant-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-01-30 16:22:09
+(epstopdf)                    size: 17327 bytes
+(epstopdf)             Command: <repstopdf --outfile=ConQuant-eps-converted-to.pdf ConQuant.eps>
+(epstopdf)             \includegraphics on input line 276.
+Package epstopdf Info: Output file is already uptodate.
+<ConQuant-eps-converted-to.pdf, id=21, pagebox=cropbox, 433.62pt x 289.08pt>
+File: ConQuant-eps-converted-to.pdf Graphic file (type pdf)
+<use ConQuant-eps-converted-to.pdf>
+Package pdftex.def Info: ConQuant-eps-converted-to.pdf  used on input line 276. on input line 276.
+Package pdftex.def Info: Requested size: 252.0pt x 168.00174pt on input line 276.
+ [2 <./Veff_photon-eps-converted-to.pdf> <./photon_geodesics-eps-converted-to.pdf> <./Veff_massive-eps-converted-to.pdf>] [3 <./massive_geodesics-eps-converted-to.pdf> <./SolarSystem-eps-converted-to.pdf> <./ConQuant-eps-converted-to.pdf>] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 13629 strings out of 492985
- 283297 string characters out of 6138638
- 306622 words of memory out of 5000000
- 17105 multiletter control sequences out of 15000+600000
- 570655 words of font info for 97 fonts, out of 8000000 for 9000
+ 13628 strings out of 492985
+ 283442 string characters out of 6138638
+ 311626 words of memory out of 5000000
+ 17106 multiletter control sequences out of 15000+600000
+ 566867 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,13n,36p,10408b,548s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (2 pages, 5155271 bytes).
+ 41i,16n,36p,10408b,548s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on report.pdf (3 pages, 5164621 bytes).
 PDF statistics:
- 221 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
+ 270 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -136,20 +136,69 @@
 	\maketitle
 
 % Write abstract here
-\begin{abstract}
-	The short abstract (50-80 words) is intended to give the reader an overview of the work.
-\end{abstract}
-
 % Each section begins with a \section{title} command
 \section{Introduction}
 	% \PARstart{}{} creates a tall first letter for this first paragraph
-	\IEEEPARstart{G}{eneral} 
+\IEEEPARstart{T}{he} Schwarzschild metric is the metric of a spacetime surrounding a spherical mass with no charge and angular momentum. In spherical coordinates is given by (we use \cite{WALD} as reference)
+	\begin{equation}
+		ds^2 = - \left( 1 - \frac{2GM}{c^2 r} \right) dt^2 + \left( 1- \frac{2GM}{c^2 r} \right)^{-1} dr^2 + r^2 d\Omega.
+	\end{equation}
+The coordinate singularity $R_s = 2GM/c^2$ is called the Schwarzschild radius, and defines the event horizon beyond which a particle becomes causally disconnected with an outside observer. Typical deviations from Newtonian gravity occur when the central object is very dense, as is the case of neutron stars and black holes. Our goal is to numerically compute the geodesics equations, that is, the trajectory of a gravitationally freely falling particle whose mass is small compared to the central object. The geodesic equation is given by
+\begin{equation}
+	\frac{d^2 x^\lambda}{d \tau^2} + \Gamma_{ \mu \nu }^{ \lambda} \frac{d x^{\mu}}{d \tau} \frac{d x^{\nu}}{d \tau} = 0,
+\end{equation}
+where $\Gamma_{ \mu \nu }^{ \lambda}$ are the Christoffel symbols, and we parametrize our curve using the proper time $ \tau $.
 
+The symmetries of the Schwarzschild metric imply the existence of three Killing vectors that lead to conservation of especific energy $E$, especific angular momentum $L$ and allow us to restrict our motion to $\theta = \pi/2$. With this in mind, the geodesic equations for the $t$ and $ \phi $ coordinates reduce to
+\begin{equation}
+	\begin{split}
+		E & = \left( 1 - \frac{2GM}{r} \right) \frac{dt}{d \tau}, \\
+		L & = r^2 \frac{d \phi}{d \tau}.
+	\end{split}
+\end{equation}
+Furthermore, the normalization of the position 4-vector $x^\lambda$ yields the radial equation 
+\begin{equation}\label{radial_equation}
+	\left( \frac{dr}{d \tau} \right)^2 = E^2 - 2 V(r),
+\end{equation}
+where
+\begin{equation}
+	V(r) = \frac{c^2}{2} \left( \kappa + \frac{ L^2}{ c^2 r^2} \right) \left( 1 - \frac{2GM}{c^2 r} \right) 
+\end{equation}
+is the effective potential. The parameter \(\kappa\) takes the value 0 for massless particles and 1 for massive particles.
 % Main Part
 \section{The integrator algorithm}
+We use the Euler-Cromer method to integrate the geodesic equations. As we will see, the Cromer modification ensures that the energy of the particle is conserved along the orbit. Other numerical integrators such as Runge-Kutta methods or the classical Euler one, do not perfom well in this system, since they are not symplectic.
+Given a system of ordinary differential equations (ODEs),
+\begin{equation}
+	\frac{d \vec{x}}{dt} = f( \vec{x} ),
+\end{equation}
+the Euler method consists on iteratively obtaining the solution by setting
+\begin{equation}
+	\vec{x}_{n+1} = \vec{x}_{n} + f( \vec{x}_{n} ) \delta \tau.
+\end{equation}
+In our case the time step $ \delta \tau $ is given by $ \delta \tau = ( \tau _f - \tau _i) / n$, that is, the time interval divided by the number of steps.
+
+When we solve the radial equation \ref{radial_equation}, we need to have in mind the choice of sign for the square root. To avoid dealing with this, we take an additional time derivative in both sides of the equality to get
+\begin{equation}
+	\frac{d^2r}{d \tau^2} = - 2 \frac{d V(r)}{dr},
+\end{equation}
+and then reduce it to a system of two first order ODEs,
+\begin{equation}
+	\begin{split}
+		&\frac{dr}{d \tau } = v_r, \\
+		&\frac{dv_r}{d \tau} = - 2 \frac{dV}{dr}.
+	\end{split}
+\end{equation}
+The Cromer modification consists on updating the $n$-th radial position by using the $(n+1)$-th radial velocity. In other words, the updating mechanism is
+\begin{equation}
+	\begin{split}
+		&v_{n+1} = v_{n} - 2 \frac{dV(r_n)}{dr}  \delta \tau , \\
+		&r_{n+1} = r_n + v_{n+1} \delta \tau.  
+	\end{split}
+\end{equation}
 
 \section{Testing the algorithm}
-In this section, we initialize our solver with initial conditions for known sceneraios: the existence of a circular orbit for photons at $R=\frac{3}{2}R_s$, and the planetary system formed by the Sun, the Earth and Jupiter (ignoring the effects of the planets to the metric).
+In this section, we initialize our solver with initial conditions for known sceneraios: the existence of a circular orbit for photons at $R=\frac{3}{2}R_s$, the last circular orbit for a massive particle at $R=3R_s$, and the planetary system formed by the Sun, the Earth and Jupiter (ignoring the effects of the planets to the metric). All the simulations have been done with a one solar mass black hole.
 \subsection{Photon geodesics}
 The effective potential for massless particles is
 \begin{equation}
@@ -176,9 +225,8 @@ We initialize a set of 15 photons, one of them at the expected circular orbit, w
 	\label{fig::photon_geodesics}
 \end{center}
 \end{figure}
-
 \subsection{Massive particle geodesics}
-From [REF] the effective potential for massive particles is
+The effective potential for massive particles is
 \begin{equation}
 	V(R) = \frac{c^2}{2} - \frac{GM}{R} + \frac{L^2}{2R^2} - \frac{GML^2}{c^2R^3},
 \end{equation}
@@ -208,9 +256,9 @@ We initialize 6 massive particles with different angular momentum at the extrema
 
 There is a characteristic radius below which no circular orbits exist, 
 \begin{equation}
-	L^4 < \frac{ 12 G^2 M^2 L^2}{ c^2} \rightarrow L < \sqrt{12 } G M,
+	L^4 < \frac{ 12 G^2 M^2 L^2}{ c^2} \rightarrow L < \sqrt{12 } G M /c,
 \end{equation}
-which corresponds to $r<3 R_s$. No particle can orbit in a circular fashion inside this radius, in contrast to the Newtonian case.
+which corresponds to $r<3 R_s$. No particle can orbit in a circular fashion inside this radius, in contrast to the Newtonian case, where it is always possible if the angular momentum is high enough.
 
 \subsection{Newtonian limit: The Solar System}
 The last check we perform is initializing the solver with a planteray system consisting of the Earth, Jupiter and the Sun as seen in figure \ref{fig::solarsystem}. The eccentricity of the orbits is $\varepsilon = 0.0034$ for the Earth and $\varepsilon=0.123$ for Jupiter. The disagreement on Jupiter's eccentricity (compared to the observed one) is due to ignoring the gravitational fields from other planets. 
@@ -221,32 +269,23 @@ The last check we perform is initializing the solver with a planteray system con
 	\label{fig::solarsystem}
 \end{center}
 \end{figure}
+\section{Energy and angular momentum conservation}
+To check the symplecticity of our solver, we plot the energy and angular momentum along a given orbit, and confirm that they are indeed conserved. As we can see from figure \ref{fig::ConQuant} 
+\begin{figure}[!hbt]
+	\begin{center}
+	\includegraphics[width=\columnwidth]{ConQuant.eps}
+	\caption{Energy and angular momentum for a photon geodesic (red lines) and a massive particle geodesic (blue lines). Both of them remain constant due to the Euler-Cromer method being symplectic.}
+	\label{fig::ConQuant}
+\end{center}
+\end{figure}
 \section{Conclusion}
-	This section summarizes the paper.
-
+We conclude that our solver perfoms well, being able to obtain the known orbits in different regimes, as well as being stable and conserving energy and angular momentum. In the future, this project will be extended to Kerr metrics, to take into account black hole spins.
 % Now we need a bibliography:
 \begin{thebibliography}{5}
 
-	%Each item starts with a \bibitem{reference} command and the details thereafter.
-	\bibitem{HOP96} % Transaction paper
-	J.~Hagenauer, E.~Offer, and L.~Papke. Iterative decoding of binary block
-	and convolutional codes. {\em IEEE Trans. Inform. Theory},
-	vol.~42, no.~2, pp.~429–-445, Mar. 1996.
-
-	\bibitem{MJH06} % Conference paper
-	T.~Mayer, H.~Jenkac, and J.~Hagenauer. Turbo base-station cooperation for intercell interference cancellation. {\em IEEE Int. Conf. Commun. (ICC)}, Istanbul, Turkey, pp.~356--361, June 2006.
-
-	\bibitem{Proakis} % Book
-	J.~G.~Proakis. {\em Digital Communications}. McGraw-Hill Book Co.,
-	New York, USA, 3rd edition, 1995.
-
-	\bibitem{talk} % Web document
-	F.~R.~Kschischang. Giving a talk: Guidelines for the Preparation and Presentation of Technical Seminars.
-	\url{http://www.comm.toronto.edu/frank/guide/guide.pdf}.
-
-	\bibitem{5}
-	IEEE Transactions \LaTeX and Microsoft Word Style Files.
-	\url{http://www.ieee.org/web/publications/authors/transjnl/index.html}
+	\bibitem{WALD} % Book
+	R.~M.~Wald. {\em General Relativity}. The University of Chicago Press,
+	Chicago, USA, 1984.
 
 \end{thebibliography}
 

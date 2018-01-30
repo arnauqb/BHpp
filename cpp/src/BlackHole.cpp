@@ -37,7 +37,7 @@ double BlackHole::dtdtau (double r)
 }
 double BlackHole::EnergyConservation ( double r)
 {
-	return dtdtau(r) * (1.- 2. * G * M/(pow(c,2) * r));
+	return sqrt( pow(drdtau(r),2.) + 2*V(r)); 
 }
 double BlackHole::LConservation( double r)
 {
