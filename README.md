@@ -101,8 +101,13 @@ Where:
 
 ## Tests
 Photon geodesics
+
 ![Photons](https://raw.githubusercontent.com/arnauq/BHpp/master/photons.png)
+
 Particle geodesics
+
 ![Particles](https://raw.githubusercontent.com/arnauq/BHpp/master/massive.png)
+
 Solar System
+
 ![SolarSystem](https://raw.githubusercontent.com/arnauq/BHpp/master/SolarSystem.png)
